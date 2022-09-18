@@ -1,0 +1,41 @@
+.home {
+    height: 100%;
+    padding-top: 40vh;
+    text-align: center;
+    background-image: url('../Sass/pages/model-1.jpg');
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    z-index: 1;
+    &::before {
+        content: '';
+        @include overlay(black, 0.5);
+        z-index: -1;
+    }
+    &__name{
+        font-size: 5em;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #fff;
+        margin-bottom: 10px;
+        line-height: 1;
+        &--last{
+            color: $secondary-color;
+            font-weight: 700;
+        }
+    }
+    .info{
+        font-size: 1.4rem;
+    }
+    .social-icons{
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        a{
+            padding: 0.4rem;
+            transition: $transition;
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+    }
+}

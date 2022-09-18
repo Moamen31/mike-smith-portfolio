@@ -1,0 +1,32 @@
+// import config
+@import './config/config';
+
+// import mixin
+@import './component/mixin';
+
+// import mixin
+@import './component/icons';
+
+// import header
+@import './component/header';
+
+// import footer
+@import './component/footer';
+
+// import menu
+@import './component/menu';
+
+// import section
+@import './component/section';
+
+// import pages
+@import './pages/home';
+
+// import about
+@import './pages/about';
+
+// import contact
+@import './pages/contact';
+
+// import projects
+@import './pages/projects';

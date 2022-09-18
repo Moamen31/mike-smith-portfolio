@@ -1,0 +1,141 @@
+// placeholder
+%bars {
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: $transition;
+}
+
+%pos-abs {
+    content: '';
+    position: absolute;
+}
+
+
+.menu-btn {
+    position: absolute;
+    width: 28px;
+    height: 35px;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+
+    @include breakpoints(mobile) {
+        display: block;
+    }
+
+    &__burger {
+        position: absolute;
+        @extend %bars;
+        top: 0.5rem;
+
+        &::before {
+            @extend %pos-abs;
+            @extend %bars;
+            top: -8px;
+        }
+
+        &::after {
+            @extend %pos-abs;
+            left: 0;
+            top: 8px;
+            width: 70%;
+            height: 3px;
+            background-color: white;
+        }
+
+        &.open {
+            transform: rotate(720deg);
+            background-color: transparent;
+
+            &::before {
+                transform: rotate(45deg) translate(5px, 8px);
+            }
+
+            &::after {
+                transform: rotate(-45deg) translate(4px, -5px);
+                width: 100%;
+            }
+        }
+    }
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 70px;
+    .menu-nav {
+        display: flex;
+        justify-content: flex-end;
+
+        &__item {
+            font-size: 22px;
+            padding: 20px 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            // position: relative;
+            transition: $transition;
+        }
+        .active {
+            color: $secondary-color;
+        }
+        .menu-nav__link {
+            transition: $transition;
+            position: relative;
+            &:hover {
+                color: $secondary-color;
+            }
+            &::before {
+                @include befor-after {
+                    width: 0;
+                    height: 3px;
+                    background-color: $secondary-color;
+                    bottom: -8px;
+                    left: 0;
+                    transition: $transition
+                }
+            }
+            &:hover::before {
+                width: 100%;
+            }
+        }
+        @include breakpoints(mobile) {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            background-color: $primary-color;
+            overflow: hidden;
+            transform: translateY(-100%);
+            transition: $transition;
+
+            &.open {
+                transform: translateY(0);
+            }
+
+            &__item {
+                font-size: 37px;
+                padding: 15px 0;
+                letter-spacing: 5px;
+                transform: translateX(100vw);
+
+                &.open {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}
+
+@for $i from 1 through 4 {
+    .menu-nav__item:nth-child(#{$i}) {
+        transition-delay: ($i * 0.1s) + 0.04s;
+    }
+}

@@ -1,0 +1,9 @@
+footer{
+    position: fixed;
+    bottom: 0.4rem;
+    right: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    color: set-text-color($primary-color);
+    z-index: 1;
+}

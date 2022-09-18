@@ -1,0 +1,60 @@
+.contact {
+    &__info {
+        width: 100%;
+        height: 100vh;
+        background-image: url("../Sass/pages/model-1.jpg");
+        background-size: cover;
+        background-position: center top;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: '';
+            @include overlay(black, 0.5);
+            z-index: -1;
+        }
+        .text-secondary{
+            font-size: 45px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        width: 80vw;
+        place-items: center;
+        margin-top: 27px;
+        row-gap: 15px;
+        @include breakpoints(mobile){
+            place-items: flex-start;
+            width: auto;
+        }
+        .item{
+            .icon{
+                font-size: 25px;
+                letter-spacing: 1px;
+            }
+            p{
+                font-size: 26px;
+                color: $secondary-color;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+        .social-icons {
+            position: initial;
+            display: flex;
+            margin-top: 35px;
+        }
+
+        footer {
+            transform: rotate(90deg);
+            right: -45px;
+            bottom: 55px;
+        }
+    }
